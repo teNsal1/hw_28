@@ -120,3 +120,8 @@ TELEGRAM_CHAT_ID = os.getenv('TELEGRAM_CHAT_ID')
 
 if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
     raise ValueError("Telegram credentials not set in .env file!")
+
+# Auth settings
+LOGIN_URL = 'login'          # Куда перенаправлять для входа
+LOGIN_REDIRECT_URL = '/'     # После входа - на главную
+LOGOUT_REDIRECT_URL = '/'    # После выхода - на главную

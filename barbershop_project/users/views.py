@@ -9,7 +9,7 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)  # Автоматический вход после регистрации
-            return redirect('home')  # Редирект на главную (измените 'home' при необходимости)
+            return redirect('/')  # Редирект на главную
     else:
         form = UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
@@ -23,7 +23,7 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('home')  # Редирект на главную
+                return redirect('/')  # Редирект на главную
     else:
         form = UserLoginForm()
     return render(request, 'users/login.html', {'form': form})
@@ -31,4 +31,4 @@ def login_view(request):
 @login_required
 def logout_view(request):
     logout(request)
-    return redirect('home')  # Редирект на главную после выхода
+    return redirect('/')  # Редирект на главную после выхода
